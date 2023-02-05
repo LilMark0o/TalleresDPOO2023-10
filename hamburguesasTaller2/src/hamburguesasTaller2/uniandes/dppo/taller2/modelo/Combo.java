@@ -8,7 +8,7 @@ import java.util.List;
 public class Combo {
 	private String nombreCombo;
 	private double descuento;
-	private List<Producto> itemsCombo;
+	private List<ProductoMenu> itemsCombo;
 
 	
 	public Combo(String nombre, double descuentoPar) {
@@ -24,12 +24,12 @@ public class Combo {
 	public double getDescuento() {
 		return descuento;
 	}
-	public void agregarItemAlCombo(Producto producto) {
+	public void agregarItemAlCombo(ProductoMenu producto) {
 		itemsCombo.add(producto);
 	}
 	public double getPrecio() {
 		int precioTotal = 0;
-		for(Producto producto : itemsCombo) {
+		for(ProductoMenu producto : itemsCombo) {
 			precioTotal += producto.getPrecioBase();
 		}
 		return (precioTotal*(1-descuento));

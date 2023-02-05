@@ -10,9 +10,10 @@ import java.util.Scanner;
 
 
 public class Restaurante {
-	private List<Producto> menuBase;
-	private List<Ingrediente> ingredientes;
-	private List<Combo> combos;
+	private static List<ProductoMenu> menuBase;
+	private static List<Ingrediente> ingredientes;
+	private static List<Combo> combos;
+	private Pedido pedido;
 	
 	public Restaurante() throws FileNotFoundException{
 		menuBase = new ArrayList<>();
@@ -24,7 +25,7 @@ public class Restaurante {
 		cargarIngredientes();
 		cargarCombos();
 	}
-	public void cargarMenu() throws FileNotFoundException {
+	private void cargarMenu() throws FileNotFoundException {
 		String archivo = System.getProperty("user.dir")+"/data/"+"menu.txt";
 		File file = new File(archivo);
 		Scanner scan = new Scanner(file);
@@ -33,12 +34,12 @@ public class Restaurante {
 			String[] partes = linea.split(";");
 			String nombre = partes[0];
 			int precio = Integer.parseInt(partes[1]);
-			Producto producto = new Producto(nombre, precio);
+			ProductoMenu producto = new ProductoMenu(nombre, precio);
 			menuBase.add(producto);
 		}
 		scan.close();
 	}
-	public void cargarIngredientes() throws FileNotFoundException {
+	private void cargarIngredientes() throws FileNotFoundException {
 		String archivo = System.getProperty("user.dir")+"/data/"+"ingredientes.txt";
 		File file = new File(archivo);
 		Scanner scan = new Scanner(file);
@@ -52,7 +53,7 @@ public class Restaurante {
 		}
 		scan.close();
 	}
-	public void cargarCombos() throws FileNotFoundException {
+	private void cargarCombos() throws FileNotFoundException {
 		String archivo = System.getProperty("user.dir")+"/data/"+"combos.txt";
 		File file = new File(archivo);
 		Scanner scan = new Scanner(file);
@@ -63,15 +64,15 @@ public class Restaurante {
 			double precio = Double.parseDouble(partes[1].replace("%", ""))/100;
 			Combo combo = new Combo(nombre, precio);
 			for (int index=2;index<partes.length;index++){
-				Producto producto = buscarProducto(partes[index]);
+				ProductoMenu producto = buscarProducto(partes[index]);
 				combo.agregarItemAlCombo(producto);
 			}
 			combos.add(combo);
 		}
 		scan.close();
 	}
-	public Producto buscarProducto(String nombre) {
-		for(Producto producto:menuBase) {
+	public ProductoMenu buscarProducto(String nombre) {
+		for(ProductoMenu producto:menuBase) {
 			if (producto.getNombre().equals(nombre)) {
 				return producto;
 			}
@@ -79,13 +80,34 @@ public class Restaurante {
 		return null;
 	}
 	
-	public ArrayList<Producto> getMenuBase() {
-		return (ArrayList<Producto>) menuBase;
+	public void iniciarPedido(String nombreCliente, String direccionCliente) {
+		pedido = new Pedido(nombreCliente,direccionCliente);	
+	}
+	
+	public Pedido getPedidoEnCurso() {
+		return pedido;
+	}
+	
+	public void cerrarPedido() {
+		Pedido.cerrarYGuardarPedido(pedido);
+	}
+	
+	public List<ProductoMenu> getMenuBase() {
+		return menuBase;
 	}
 	public List<Ingrediente> getIngredientes() {
 		return ingredientes;
 	}
 	public List<Combo> getCombos() {
 		return combos;
+	}
+	public ProductoMenu buscarProductoMenuPorIndice(int index) {
+		return menuBase.get((index-1)); //el menos uno es porque el usuario ve la lista de 1 a size(), y no de 0 a size()
+	}
+	public Ingrediente buscarIngredientePorIndice(int index) {
+		return ingredientes.get((index-1)); //el menos uno es porque el usuario ve la lista de 1 a size(), y no de 0 a size()
+	}
+	public Combo buscarComboPorIndice(int index) {
+		return combos.get((index-1)); //el menos uno es porque el usuario ve la lista de 1 a size(), y no de 0 a size()
 	}
 }

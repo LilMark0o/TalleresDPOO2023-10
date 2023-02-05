@@ -1,10 +1,10 @@
 package hamburguesasTaller2.uniandes.dppo.taller2.modelo;
 
-public class Producto {
+public class ProductoMenu {
 	private String nombre;
 	private int precioBase;
 	
-	public Producto(String nombrePar, int precioBasePar) {
+	public ProductoMenu(String nombrePar, int precioBasePar) {
 		nombre = nombrePar;
 		precioBase = precioBasePar;
 	}
