@@ -40,4 +40,18 @@ public class Combo {
 		return String.format("El combo %s tiene un descuento del: %d%% y un precio de: %d", nombreCombo,discount,price);
 	}
 	
+	public String toFactura() {
+		String text= "";
+		text += String.format("1 unidad del combo: %s, el combo contiene:\n",nombreCombo);
+
+		for (ProductoMenu producto: itemsCombo) {
+			text += String.format("\t- %s\n",producto.getNombre());
+		}
+		
+		text += String.format("Al combo se le aplicó un descuento del: %f%%\n",descuento*100);
+		text += String.format("El precio total del combo es de: $%f\n",getPrecio());
+		return text;
+	}
+
+	
 }

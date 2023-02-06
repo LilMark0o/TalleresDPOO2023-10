@@ -18,7 +18,7 @@ public class Aplicacion {
 	
 	private static Restaurante menu;
 	
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws IOException {
 		System.out.println("Estadísticas sobre los Juegos Olímpicos\n");
 		try {
 			menu = new Restaurante();
@@ -61,7 +61,7 @@ public class Aplicacion {
 			}
 		}
 	}
-	private static void cerrarPedido() {
+	private static void cerrarPedido() throws IOException {
 		menu.cerrarPedido();		
 	}
 	private static void crearPedido() throws FileNotFoundException {
@@ -84,6 +84,7 @@ public class Aplicacion {
 			}
 			System.out.print("\n");
 		}
+		menu.actualizarPedido(pedido);
 	}
 	
 	private static void cargarDatos() {
@@ -122,12 +123,12 @@ public class Aplicacion {
 		System.out.println("1. Cargar Datos");
 		System.out.println("2. Mostrar Datos");
 		System.out.println("3. Hacer un pedido");
-		System.out.println("4. Buscar un pedido por ID");
+		System.out.println("4. Terminar el pedido e imprimir factura");
 		System.out.println("5. Salir de la aplicación\n");
 	}
 	
 	public static void armarProducto(Pedido pedido) throws FileNotFoundException {
-		System.out.println("--- ¿Qué deseas que tenga tu producto? ---");
+		System.out.println("--- ¿Qué deseas que tenga tu pedido? ---");
 		System.out.println("1. Un producto del menú (personalizable)");
 		System.out.println("2. Un combo");
 		int opcion_seleccionada = Integer.parseInt(Aplicacion.input("\nPor favor seleccione una opción"));

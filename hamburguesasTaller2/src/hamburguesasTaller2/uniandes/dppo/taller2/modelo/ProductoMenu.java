@@ -20,5 +20,11 @@ public class ProductoMenu {
 	public String toString() {
 		return String.format("El producto %s tiene el precio: $%d", this.nombre,this.precioBase);
 	}
+	public String toFactura() {
+		String text ="";
+		text+= String.format("1 unidad del producto: %s\n", nombre);
+		text+= String.format("Tiene un precio de: %d\n", precioBase);
+		return text;
+	}
 	
 }

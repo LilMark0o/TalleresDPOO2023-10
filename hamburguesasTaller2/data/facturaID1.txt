@@ -1,0 +1,17 @@
+--- factura de la compra con ID: 1 ---
+Factura emitida a nombre de: Avila.
+Envio hecho hacia la dirección: Carrera 11aa
+1 unidad del combo: combo todoterreno, el combo contiene:
+	- todoterreno
+	- papas grandes
+	- gaseosa
+Al combo se le aplicó un descuento del: 7.000000%
+El precio total del combo es de: $34317.000000
+1 unidad de todoterreno 
+El precio total del producto fue: $25000
+1 unidad del producto: gaseosa
+Tiene un precio de: 5000
+
+El precio neto de la compra es: $64317
+El precio del IVA de la compra es: $12220.230469
+El precio final de la compra es: $76537.234375

@@ -1,5 +1,7 @@
 package hamburguesasTaller2.uniandes.dppo.taller2.modelo;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,6 +26,7 @@ public class Pedido {
 		itemsPedido = new ArrayList<>();
 		
 	}
+	
 
 	public static int getNumeroPedido() {
 		return numeroPedido;
@@ -62,11 +65,42 @@ public class Pedido {
 		return (float) (getPrecioNetoPedido()+getPrecioIVAPedido());
 	}
 	
-	
-	public static void cerrarYGuardarPedido(Pedido pedido) {
-		historialPedidos.put(pedido.getIdPedido(), pedido);
-		//! FALTA GUARDAR UN ARCHIVO CON EL RECIBO
+	public String facturaBase() {
+		String text = "";
+		text += String.format("--- factura de la compra con ID: %d ---\n",idPedido);
+		text += String.format("Factura emitida a nombre de: %s\n",nombreCliente);
+		text += String.format("Envio hecho hacia la dirección: %s\n",direccionCliente);
+		return text;
 	}
+	public String facturaFinal() {
+		String text = "";
+		text += String.format("\nEl precio neto de la compra es: $%d\n",getPrecioNetoPedido());
+		text += String.format("El precio del IVA de la compra es: $%f\n",getPrecioIVAPedido());
+		text += String.format("El precio final de la compra es: $%f\n",getPrecioTotalPedido());
+
+		return text;
+	}
+	public String textoFacturaTodo() {
+		String text="";
+		text+= facturaBase();
+		for (Producto producto:itemsPedido) {
+			text+= producto.getTextoFactura();
+			text+="\n";	
+		}
+		text+=facturaFinal();
+		return text;
+	}
+	
+	public void guardarFactura() throws IOException {
+		String text = textoFacturaTodo();
+		String idPedidoString = Integer.toString(idPedido);
+		String archivo = System.getProperty("user.dir")+"/data/"+"facturaID"+idPedidoString+".txt";
+
+		FileWriter writer = new FileWriter(archivo);
+		writer.write(text);
+		writer.close();
+	}
+	
 	public Pedido buscarPedidoPorid(int ID) {
 		Pedido pedido = historialPedidos.get(ID);
 		return pedido;

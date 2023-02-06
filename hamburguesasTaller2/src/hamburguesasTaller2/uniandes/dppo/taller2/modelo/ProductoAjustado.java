@@ -34,4 +34,16 @@ public class ProductoAjustado {
 	public List<Ingrediente> getQuitados() {
 		return quitados;
 	}
+	public String toFactura() {
+		String text= "";
+		text += String.format("1 unidad de %s \n",nombre);
+		for (Ingrediente ingrediente: agregados) {
+			text += String.format("\t- con adición de %s, con un costo adicional de: %d\n",ingrediente.getNombre(),ingrediente.getCostoAdicional());
+		}
+		for (Ingrediente ingrediente: quitados) {
+			text += String.format("\t- se quitó el ingrediente %s\n",ingrediente.getNombre());
+		}
+		text += String.format("El precio total del producto fue: $%d\n",precio);
+		return text;
+	}
 }

@@ -20,5 +20,4 @@ public class Ingrediente {
 	public String toString() {
 		return String.format("El ingrediente %s tiene el precio: $%d", nombre,costoAdicional);
 	}
-	
 }

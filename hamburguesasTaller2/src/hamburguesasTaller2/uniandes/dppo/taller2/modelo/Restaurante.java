@@ -3,6 +3,7 @@ package hamburguesasTaller2.uniandes.dppo.taller2.modelo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class Restaurante {
 	private static List<ProductoMenu> menuBase;
 	private static List<Ingrediente> ingredientes;
 	private static List<Combo> combos;
-	private Pedido pedido;
+	private static Pedido pedido;
 	
 	public Restaurante() throws FileNotFoundException{
 		menuBase = new ArrayList<>();
@@ -87,9 +88,12 @@ public class Restaurante {
 	public Pedido getPedidoEnCurso() {
 		return pedido;
 	}
+	public void actualizarPedido(Pedido pedidoNuevo) {
+		pedido = pedidoNuevo;
+	}
 	
-	public void cerrarPedido() {
-		Pedido.cerrarYGuardarPedido(pedido);
+	public void cerrarPedido() throws IOException {
+		pedido.guardarFactura();
 	}
 	
 	public List<ProductoMenu> getMenuBase() {
