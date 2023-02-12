@@ -3,10 +3,12 @@ package hamburguesasTaller2.uniandes.dppo.taller2.modelo;
 public class Ingrediente {
 	private String nombre;
 	private int costoAdicional;
-	
-	public Ingrediente(String nombrePar, int costoAdicionalPar) {
+	private int calorias;
+
+	public Ingrediente(String nombrePar, int costoAdicionalPar, int caloriasPar) {
 		nombre = nombrePar;
 		costoAdicional = costoAdicionalPar;
+		calorias = caloriasPar;
 	}
 
 	public String getNombre() {
@@ -17,7 +19,11 @@ public class Ingrediente {
 		return costoAdicional;
 	}
 
+	public int getCalorias() {
+		return calorias;
+	}
+
 	public String toString() {
-		return String.format("El ingrediente %s tiene el precio: $%d", nombre,costoAdicional);
+		return String.format("El ingrediente %s tiene el precio: $%d", nombre, costoAdicional);
 	}
 }

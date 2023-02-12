@@ -1,17 +1,17 @@
 --- factura de la compra con ID: 1 ---
-Factura emitida a nombre de: Nicolas Pinilla
-Envio hecho hacia la dirección: 117 #57
-1 unidad del combo: combo todoterreno, el combo contiene:
-	- todoterreno
-	- papas grandes
-	- gaseosa
-Al combo se le aplicó un descuento del: 7.000000%
-El precio total del combo es de: $34317.000000
+Factura emitida a nombre de: Luna
+Envio hecho hacia la dirección: En mi casa
+1 unidad de papas en casco grandes 
+	- con adición de tomate, con un costo adicional de: 1000
+	- se quitó el ingrediente tocineta express
+El precio total del producto fue: $7900
 
-1 unidad de especial 
-El precio total del producto fue: $24000
+1 unidad de la bebida: Pepsi
+Tiene un precio de: 4500
 
 
-El precio neto de la compra es: $58317
-El precio del IVA de la compra es: $11080.230469
-El precio final de la compra es: $69397.234375
+El pedido contiene un total de 35 calorias
+
+El precio neto de la compra es: $12400
+El precio del IVA de la compra es: $2356.000000
+El precio final de la compra es: $14756.000000
