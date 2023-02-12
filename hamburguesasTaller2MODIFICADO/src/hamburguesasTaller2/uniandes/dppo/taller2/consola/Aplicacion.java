@@ -43,8 +43,10 @@ public class Aplicacion {
 
 				} else if (opcion_seleccionada == 4) {
 					cerrarPedido();
-
 				} else if (opcion_seleccionada == 5) {
+					compararFactura();
+
+				} else if (opcion_seleccionada == 6) {
 					System.out.println("Chaolin pin pín	");
 					continuar = false;
 				} else {
@@ -53,6 +55,18 @@ public class Aplicacion {
 			} catch (NumberFormatException e) {
 				System.out.println("Debe seleccionar uno de los números de las opciones.");
 			}
+		}
+	}
+
+	private static void compararFactura() {
+		imprimirTitulo("¡Vamos a ver si existe una factura igual!");
+		if (menu.hayPedidoIgual()) {
+			for (Integer id : menu.listaDePedidosIguales()) {
+				System.out.printf("\nEl pedido de ID: %d es igual al que acabas de terminar, ¡que linda coincidencia!",
+						id);
+			}
+		} else {
+			System.out.println("Ohno, no hay un pedido igual, lo siento mucho :C");
 		}
 	}
 
@@ -127,7 +141,8 @@ public class Aplicacion {
 		System.out.println("2. Mostrar Datos");
 		System.out.println("3. Hacer un pedido");
 		System.out.println("4. Terminar el pedido e imprimir factura");
-		System.out.println("5. Salir de la aplicación\n");
+		System.out.println("5. Comparar factura\n");
+		System.out.println("6. Salir de la aplicación\n");
 	}
 
 	public static void armarProducto(Pedido pedido) throws FileNotFoundException {

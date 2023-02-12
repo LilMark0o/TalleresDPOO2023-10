@@ -10,7 +10,7 @@ import hamburguesasTaller2.uniandes.dppo.taller2.consola.Producto;
 
 public class Pedido {
 	private static int numeroPedido = 0;
-	private static HashMap<Integer, Pedido> historialPedidos;
+	private static HashMap<Integer, Pedido> historialPedidos = new HashMap<>();
 
 	private int idPedido;
 	private String nombreCliente;
@@ -29,6 +29,14 @@ public class Pedido {
 
 	public static int getNumeroPedido() {
 		return numeroPedido;
+	}
+
+	public List<Producto> getItemsPedido() {
+		return itemsPedido;
+	}
+
+	public void guardarPedidoEnHistorial(Pedido pedido) {
+		historialPedidos.put(pedido.getIdPedido(), pedido);
 	}
 
 	public void agregarItemAlPedido(Producto nuevoItem) {
@@ -110,8 +118,48 @@ public class Pedido {
 		writer.close();
 	}
 
-	public Pedido buscarPedidoPorid(int ID) {
-		Pedido pedido = historialPedidos.get(ID);
-		return pedido;
+	public ArrayList<Integer> buscarPedidoIgual(Pedido pedidoAComparar) {
+		ArrayList<Integer> listaPedidosIguales = new ArrayList<>();
+		Integer caloriasAComparar = pedidoAComparar.getCaloriasTotales();
+		Float precioAComparar = pedidoAComparar.getPrecioTotalPedido();
+		List<Producto> listaAComparar = pedidoAComparar.getItemsPedido();
+		Integer idPedido = pedidoAComparar.getIdPedido();
+		for (HashMap.Entry<Integer, Pedido> entry : historialPedidos.entrySet()) {
+			Boolean sonIguales = true;
+			Integer idActual = entry.getKey();
+			Pedido pedidoActual = entry.getValue();
+			Integer caloriasActual = pedidoActual.getCaloriasTotales();
+			Float precioActual = pedidoActual.getPrecioTotalPedido();
+			List<Producto> listaActual = pedidoActual.getItemsPedido();
+			if ((caloriasAComparar.equals(caloriasActual)) && (precioAComparar.equals(precioActual)) && (!(idPedido
+					.equals(idActual)))) {
+				for (Producto producto : listaAComparar) {
+					Boolean estoyDobleJeje = false;
+					for (Producto producto2 : listaActual) {
+						if (producto.getNombre().equals(producto2.getNombre())) {
+							estoyDobleJeje = true;
+						}
+					}
+					if (estoyDobleJeje.equals(false)) {
+						sonIguales = false;
+					}
+				}
+			} else {
+				sonIguales = false;
+			}
+			if (sonIguales) {
+				listaPedidosIguales.add(idActual);
+			}
+		}
+		return listaPedidosIguales;
+	}
+
+	public Boolean hayPedidosIguales(Pedido pedido) {
+		ArrayList<Integer> listaPedidos = buscarPedidoIgual(pedido);
+		if (listaPedidos.size() > 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

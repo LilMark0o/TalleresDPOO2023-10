@@ -132,6 +132,15 @@ public class Restaurante {
 
 	public void cerrarPedido() throws IOException {
 		pedido.guardarFactura();
+		pedido.guardarPedidoEnHistorial(pedido);
+	}
+
+	public boolean hayPedidoIgual() {
+		return pedido.hayPedidosIguales(pedido);
+	}
+
+	public ArrayList<Integer> listaDePedidosIguales() {
+		return pedido.buscarPedidoIgual(pedido);
 	}
 
 	public List<ProductoMenu> getMenuBase() {
