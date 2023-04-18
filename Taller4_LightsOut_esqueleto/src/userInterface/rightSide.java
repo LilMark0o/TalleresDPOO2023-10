@@ -64,19 +64,13 @@ public class rightSide extends JPanel implements ActionListener {
 			buttonReiniciar.setEnabled(true);
 			mainInterface.sePuedeJugarGOOOD = true;
 
-			System.out.println("Se creó un nuevo tablero, ¡a jugar!");
 		} else if (e.getSource() == buttonReiniciar) {
 			mainInterface.tablero.reiniciar();
 			mainInterface.adentroIzquierda.actualizar();
 			mainInterface.abajo.actualizarJugada();
-			System.out.println("¡Se reinició el tablero!");
 		} else if (e.getSource() == buttonTopTen) {
 			new ShowTopTen();
-			// acá debería hacer una nueva ventana en la que se muestra el top 10
-
-			System.out.println("Mostrar top 10");
 		} else if (e.getSource() == buttonCambiarJugador) {
-
 			new pedirNombre();
 			mainInterface.sePuedeJugarGOOODConNombre = true;
 		}

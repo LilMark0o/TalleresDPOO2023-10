@@ -60,13 +60,10 @@ public class arriba extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == easyRadioButton) {
             mainInterface.dificultad = 3;
-            System.out.println("Se colocó la dificultad: fácil");
         } else if (e.getSource() == mediumRadioButton) {
             mainInterface.dificultad = 5;
-            System.out.println("Se colocó la dificultad: medio");
         } else if (e.getSource() == hardRadioButton) {
             mainInterface.dificultad = 7;
-            System.out.println("Se colocó la dificultad: difícil");
         } else if (e.getSource() == sizeComboBox) {
             int index = sizeComboBox.getSelectedIndex();
             if (index == 0) {
