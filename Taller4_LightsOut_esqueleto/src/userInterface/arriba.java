@@ -15,7 +15,6 @@ public class arriba extends JPanel implements ActionListener {
     public arriba() {
         this.setLayout(new GridLayout(1, 7));
         setPreferredSize(new Dimension(getWidth(), 60));
-        setBackground(new Color(102, 178, 255));
 
         JLabel sizeLabel = new JLabel("Tamano:");
         sizeLabel.setFont(new Font("Arial", Font.PLAIN, 14));

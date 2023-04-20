@@ -25,7 +25,7 @@ public class rightSide extends JPanel implements ActionListener {
 		buttonNuevo.addActionListener(this);
 		buttonNuevo.setText("Nuevo");
 		buttonNuevo.setFocusable(false);
-		buttonNuevo.setBackground(Color.BLUE);
+		buttonNuevo.setBackground(new Color(102, 178, 255));
 		buttonNuevo.setForeground(Color.WHITE);
 
 		add(buttonNuevo);
@@ -37,7 +37,7 @@ public class rightSide extends JPanel implements ActionListener {
 		buttonReiniciar.setText("Reiniciar");
 		buttonReiniciar.setFocusable(false);
 		buttonReiniciar.setEnabled(false);
-		buttonReiniciar.setBackground(Color.BLUE);
+		buttonReiniciar.setBackground(new Color(102, 178, 255));
 		buttonReiniciar.setForeground(Color.WHITE);
 
 		add(buttonReiniciar);
@@ -46,7 +46,7 @@ public class rightSide extends JPanel implements ActionListener {
 		buttonTopTen.addActionListener(this);
 		buttonTopTen.setText("Top - 10");
 		buttonTopTen.setFocusable(false);
-		buttonTopTen.setBackground(Color.BLUE);
+		buttonTopTen.setBackground(new Color(102, 178, 255));
 		buttonTopTen.setForeground(Color.WHITE);
 
 		add(buttonTopTen);
@@ -56,7 +56,7 @@ public class rightSide extends JPanel implements ActionListener {
 		buttonCambiarJugador.addActionListener(this);
 		buttonCambiarJugador.setText("Cambiar Jugador");
 		buttonCambiarJugador.setFocusable(false);
-		buttonCambiarJugador.setBackground(Color.BLUE);
+		buttonCambiarJugador.setBackground(new Color(102, 178, 255));
 		buttonCambiarJugador.setForeground(Color.WHITE);
 
 		add(buttonCambiarJugador);
