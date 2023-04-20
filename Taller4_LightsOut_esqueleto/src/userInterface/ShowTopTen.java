@@ -19,6 +19,13 @@ public class ShowTopTen extends JFrame {
         int topNum = 1;
         for (RegistroTop10 elemento : top10Bien) {
             miniTopTen panelcito = new miniTopTen(topNum, elemento.darNombre(), elemento.darPuntos());
+            if (topNum == 1) {
+                panelcito.setBackground(Color.BLUE);
+                panelcito.setForeground(Color.WHITE);
+            } else if (topNum < 4) {
+                panelcito.setBackground(Color.WHITE);
+                panelcito.setForeground(Color.RED);
+            }
             modelo.addElement(panelcito);
             topNum += 1;
         }
