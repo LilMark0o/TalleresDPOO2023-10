@@ -25,7 +25,7 @@ public class mainInterface extends JFrame {
 		top10 = new Top10();
 
 		top10.cargarRecords(Top10.str2File(
-				"/Users/marco/eclipse-workspace/DPOO/TalleresDPOO2023-10/Taller4_LightsOut_esqueleto/data/top10.csv"));
+				("./data/top10.csv")));
 
 		setTitle("Lights Out Game");
 		setSize(600, 600);

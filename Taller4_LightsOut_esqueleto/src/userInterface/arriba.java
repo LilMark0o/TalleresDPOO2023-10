@@ -7,7 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class arriba extends JPanel implements ActionListener {
-    private JComboBox<String> sizeComboBox;
+    private static final long serialVersionUID = 1L;
+	private JComboBox<String> sizeComboBox;
     private JRadioButton easyRadioButton;
     private JRadioButton mediumRadioButton;
     private JRadioButton hardRadioButton;

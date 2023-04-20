@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class miniTopTen extends JPanel {
-    private int num;
+    private static final long serialVersionUID = 1L;
+	private int num;
     private String nombre;
     private int puntaje;
 

@@ -5,7 +5,8 @@ import java.awt.*;
 import javax.swing.*;
 
 public class jugadorJugadaAbajo extends JPanel {
-    private static JLabel label1;
+    private static final long serialVersionUID = 1L;
+	private static JLabel label1;
     private static JLabel label2;
     private static JLabel label3;
     private static JLabel label4;

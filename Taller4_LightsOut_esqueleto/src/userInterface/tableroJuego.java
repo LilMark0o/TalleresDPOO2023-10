@@ -75,7 +75,7 @@ public class tableroJuego extends JPanel implements MouseListener {
                         JOptionPane.INFORMATION_MESSAGE);
                 try {
                     mainInterface.top10.salvarRecords(Top10.str2File(
-                            "/Users/marco/eclipse-workspace/DPOO/TalleresDPOO2023-10/Taller4_LightsOut_esqueleto/data/top10.csv"));
+                            "./data/top10.csv"));
                 } catch (FileNotFoundException | UnsupportedEncodingException e1) {
                 }
             }

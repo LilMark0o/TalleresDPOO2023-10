@@ -8,7 +8,8 @@ import java.awt.*;
 import java.util.Collection;
 
 public class ShowTopTen extends JFrame {
-    private JList<miniTopTen> lista;
+    private static final long serialVersionUID = 1L;
+	private JList<miniTopTen> lista;
 
     public ShowTopTen() {
         super("Top 10");
@@ -42,7 +43,8 @@ public class ShowTopTen extends JFrame {
     }
 
     private class RenderizadorLista extends JPanel implements ListCellRenderer<miniTopTen> {
-        private JLabel label1 = new JLabel();
+        private static final long serialVersionUID = 1L;
+		private JLabel label1 = new JLabel();
         private JLabel label2 = new JLabel();
         private JLabel label3 = new JLabel();
 

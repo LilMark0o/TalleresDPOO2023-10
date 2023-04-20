@@ -4,7 +4,9 @@ import javax.swing.*;
 
 public class pedirNombre extends JFrame {
 
-    public pedirNombre() {
+    private static final long serialVersionUID = 1L;
+
+	public pedirNombre() {
         // Configuramos la ventana
         this.setTitle("Cambio de Jugador Juego");
         this.setSize(350, 150);
