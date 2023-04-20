@@ -6,7 +6,7 @@ public class pedirNombre extends JFrame {
 
     public pedirNombre() {
         // Configuramos la ventana
-        this.setTitle("Cambio de Jugador");
+        this.setTitle("Cambio de Jugador Juego");
         this.setSize(350, 150);
         this.setLocationRelativeTo(null);
 
